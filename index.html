@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBITO - Premium Anime & Car Posters</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Intro Video Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-video-container">
+            <video class="intro-video" autoplay muted>
+                <source src="data:video/mp4;base64," type="video/mp4">
+                <!-- Placeholder for intro video -->
+            </video>
+            <button class="skip-button" id="skipButton" onclick="skipIntro()">Skip →</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">OBITO</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#anime">Anime</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#bookmarks">Bookmarks</a></li>
+                <li><a href="#vip">VIP Cards</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search anime, cars, bookmarks..."
+                        id="searchInput">
+                    <button class="search-button" onclick="performSearch()">🔍</button>
+                </div>
+                <button class="cart-button" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div class="auth-buttons">
+                    <button class="auth-button" onclick="showLogin()">Login</button>
+                    <button class="auth-button primary" onclick="showRegister()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">OBITO STORE</h1>
+            <p class="hero-subtitle">Premium Anime Posters, Car Art & Collectibles<br>Exclusive VIP Membership Benefits
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="hero-button primary">Shop Now</a>
+                <a href="#vip" class="hero-button secondary">Join VIP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Cards Section -->
+    <section class="vip-section" id="vip">
+        <h2 class="section-title">OBITO VIP Cards</h2>
+        <div class="cards-container">
+            <div class="vip-card" onclick="selectCard('silver')">
+                <h3 class="card-type card-silver">Silver Card</h3>
+                <div class="card-discount">5% OFF</div>
+                <p>Orders ₹100+</p>
+                <p>Auto-assigned on registration</p>
+                <ul class="card-benefits">
+                    <li>✨ Instant access</li>
+                    <li>🎯 5% discount on all orders</li>
+                    <li>📱 Digital card #001-999</li>
+                    <li>⏰ 3-month validity</li>
+                </ul>
+            </div>
+
+            <div class="vip-card" onclick="selectCard('platinum')">
+                <h3 class="card-type card-platinum">Platinum Card</h3>
+                <div class="card-discount">10% OFF</div>
+                <p>Orders ₹200+</p>
+                <p>After ₹100 purchase</p>
+                <ul class="card-benefits">
+                    <li>🚀 Priority support</li>
+                    <li>💰 10% discount</li>
+                    <li>🎨 Exclusive designs</li>
+                    <li>📦 Free shipping</li>
+                </ul>
+            </div>
+
+            <div class="vip-card" onclick="selectCard('gold')">
+                <h3 class="card-type card-gold">Gold Card</h3>
+                <div class="card-discount">15% OFF</div>
+                <p>Orders ₹500+</p>
+                <p>After ₹300 total purchase</p>
+                <ul class="card-benefits">
+                    <li>👑 VIP treatment</li>
+                    <li>💎 15% discount</li>
+                    <li>🎁 Monthly surprises</li>
+                    <li>⚡ Express processing</li>
+                </ul>
+            </div>
+
+            <div class="vip-card" onclick="selectCard('black')">
+                <h3 class="card-type card-black">Black Card</h3>
+                <div class="card-discount">20% OFF</div>
+                <p>Any purchase</p>
+                <p>Invitation only</p>
+                <ul class="card-benefits">
+                    <li>🖤 Ultimate prestige</li>
+                    <li>🔥 20% discount</li>
+                    <li>⚡ 120hr delivery</li>
+                    <li>🎪 Exclusive events</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products-section" id="products">
+        <div class="products-container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('naruto')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Naruto Uzumaki Poster</h3>
+                        <p class="product-category">Anime Collection</p>
+                        <p class="product-price">₹299</p>
+                        <button class="add-to-cart" onclick="addToCart('naruto-poster', 299)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('ferrari')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ferrari F40 Poster</h3>
+                        <p class="product-category">Car Collection</p>
+                        <p class="product-price">₹399</p>
+                        <button class="add-to-cart" onclick="addToCart('ferrari-poster', 399)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('onepiece')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">One Piece Crew Poster</h3>
+                        <p class="product-category">Anime Collection</p>
+                        <p class="product-price">₹349</p>
+                        <button class="add-to-cart" onclick="addToCart('onepiece-poster', 349)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('lambo')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Lamborghini Aventador</h3>
+                        <p class="product-category">Car Collection</p>
+                        <p class="product-price">₹449</p>
+                        <button class="add-to-cart" onclick="addToCart('lambo-poster', 449)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('bookmark')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Anime Bookmark Set</h3>
+                        <p class="product-category">Bookmarks</p>
+                        <p class="product-price">₹149</p>
+                        <button class="add-to-cart" onclick="addToCart('bookmark-set', 149)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductVideo('aot')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Attack on Titan Poster</h3>
+                        <p class="product-category">Anime Collection</p>
+                        <p class="product-price">₹379</p>
+                        <button class="add-to-cart" onclick="addToCart('aot-poster', 379)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <button class="close-modal" onclick="closeVideoModal()">✕</button>
+            <video class="modal-video" id="modalVideo" controls autoplay muted>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <h3 style="color: #ff6b35; margin-bottom: 20px;">Your Profile</h3>
+            <div class="user-card-display">
+                <div class="card-3d" id="userCard">
+                    <span id="cardType">SILVER #001</span>
+                </div>
+                <p id="cardBenefits">5% OFF on orders ₹100+</p>
+                <p id="cardExpiry">Expires: March 2025</p>
+            </div>
+            <button class="auth-button primary" onclick="closeProfile()"
+                style="width: 100%; margin-top: 20px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#anime">Anime Posters</a></li>
+                    <li><a href="#cars">Car Posters</a></li>
+                    <li><a href="#vip">VIP Program</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 OBITO Store. All rights reserved. Built with passion for anime and car enthusiasts.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
